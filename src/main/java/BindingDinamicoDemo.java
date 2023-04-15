@@ -15,6 +15,9 @@ public class BindingDinamicoDemo {
 		//un prodotto a E11.00 con il 10% di sconto.
 		System.out.println(methodPrezzoUguale(prezzoNormale,prezzoSpeciale));
 
+		double i = 12.33;
+		System.out.println(i);
+
 	}
 
 	public static String methodPrezzoMinore (Vendita semplice, VenditaScontata scontato){

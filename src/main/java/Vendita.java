@@ -19,15 +19,7 @@ public class Vendita {
 		setNome(ilNome);
 		setPrezzo(ilPrezzo);
 	}
-	 
-	public Vendita(Vendita oggettoOriginale) {
-		if(oggettoOriginale == null) {
-			System.out.println("Errore: oggetto Vendita null.");
-			System.exit(0);
-		} //else
-		nome = oggettoOriginale.nome;
-		prezzo = oggettoOriginale.prezzo;
-	}
+
 
 	 
 	public double getPrezzo() {
@@ -37,12 +29,14 @@ public class Vendita {
 	/**
 	 Precondizione: nuovoPrezzo � non negativo.
 	*/
-	public void setPrezzo(double nuovoPrezzo) {
-		if(nuovoPrezzo >= 0)
+	public boolean setPrezzo(double nuovoPrezzo) {
+		if(nuovoPrezzo >= 0) {
 			prezzo = nuovoPrezzo;
+			return true;
+		}
 		else {
 			System.out.println("Errore: Prezzo negativo.");
-			System.exit(0);
+			return false;
 		}
 	}
 	  
@@ -53,12 +47,14 @@ public class Vendita {
 	/**
 	 Precondizione: nuovoNome � una stringa non vuota.
 	*/
-	public void setNome(String nuovoNome) {
-		if(nuovoNome != null && nuovoNome != "")
+	public boolean setNome(String nuovoNome) {
+		if(nuovoNome != null && nuovoNome != "") {
 			nome = nuovoNome;
+			return true;
+		}
 		else {
 			System.out.println("Errore: nome errato.");
-			System.exit(0);
+			return false;
 		}
 	}
 	
@@ -91,7 +87,7 @@ public class Vendita {
 	public boolean minoreDi(Vendita altraVendita) {
 		if(altraVendita == null) {
 			System.out.println("Errore: oggetto Vendita � null.");
-			System.exit(0);
+			return false;
 		}
 		//else
 		return (totale() < altraVendita.totale());

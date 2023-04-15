@@ -23,13 +23,7 @@ public class VenditaScontata extends Vendita {
 		setSconto(loSconto);
 	}
 
-	public VenditaScontata(VenditaScontata oggettoOriginale) {
-		super(oggettoOriginale);
-		sconto = oggettoOriginale.sconto;
-	}
 
-
-	
 	public double totale() {
 		double frazione = sconto / 100;
 		return (1 - frazione) * getPrezzo();
@@ -42,12 +36,14 @@ public class VenditaScontata extends Vendita {
 	/**
 	 Precondizione: nuovoSconto � non negativo.
 	*/
-	public void setSconto(double nuovoSconto) {
-		if(nuovoSconto >= 0)
+	public boolean setSconto(double nuovoSconto) {
+		if(nuovoSconto >= 0) {
 			sconto = nuovoSconto;
+			return true;
+		}
 		else {
 			System.out.println("Errore: sconto negativo.");
-			System.exit(0);
+			return false;
 		}
 	}
 	
