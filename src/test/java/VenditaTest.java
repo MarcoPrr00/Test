@@ -21,9 +21,7 @@ public class VenditaTest {
     @Test
     @DisplayName("metodo che testa i valori non ammissibili di setPrezzo (-8, 0, null, empty)")
     void test2SetPrezzo(double n) {
-        double numeroVuoto;
-        List<Double> listanumeri = List.of(-8, 0, null);
-        List<Vendita> list = List.of(new Vendita(),new Vendita(), null);
+        List<Vendita> list = List.of(new Vendita(),new Vendita(), new Vendita());
 
         Assertions.assertAll(() -> assertEquals(false, list.get(0).setPrezzo(-8)),
                              () -> assertEquals(false, list.get(1).setPrezzo(0)),
