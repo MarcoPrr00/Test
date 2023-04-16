@@ -37,4 +37,19 @@ public class VenditaScontataTest {
         Assertions.assertEquals(false, prodotto.setSconto2(n));
 
     }
+
+    @Test
+    @DisplayName("test equals")
+    void testEquals() {
+        VenditaScontata prodotto = new VenditaScontata("penna", 21.50, 10);
+        Assertions.assertAll(() -> assertEquals(false, prodotto.equals(new VenditaScontata())),
+                () -> assertEquals(false, prodotto.equals(null)),
+                () -> assertEquals(false, prodotto.equals(new String())),
+                () -> assertEquals(true, prodotto.equals(new VenditaScontata("penna", 21.50, 10))),
+                () -> assertEquals(false, prodotto.equals(new VenditaScontata("penna", 11.05, 10))),
+                () -> assertEquals(false, prodotto.equals(new VenditaScontata("matita", 21.50, 10))),
+                () -> assertEquals(false, prodotto.equals(new VenditaScontata("cancellino", 7.49, 30))),
+                () -> assertEquals(false, prodotto.equals(new VenditaScontata("penna", 21.5, 17.40))));
+
+    }
 }

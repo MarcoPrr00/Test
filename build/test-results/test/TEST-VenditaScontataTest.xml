@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="VenditaScontataTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2023-04-16T14:49:15" hostname="DESKTOP-DJSC45C" time="0.126">
+<testsuite name="VenditaScontataTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-04-16T15:05:51" hostname="DESKTOP-DJSC45C" time="0.037">
   <properties/>
-  <testcase name="[1] -9.5" classname="VenditaScontataTest" time="0.073"/>
-  <testcase name="[2] 101.0" classname="VenditaScontataTest" time="0.002"/>
-  <testcase name="[3] 1.7976931348623157E308" classname="VenditaScontataTest" time="0.002"/>
-  <testcase name="metodo che testa i valori non ammissibili di setSconto (-8, null, empty)" classname="VenditaScontataTest" time="0.006"/>
-  <testcase name="[1] 2.0" classname="VenditaScontataTest" time="0.002"/>
-  <testcase name="[2] 11.0" classname="VenditaScontataTest" time="0.001"/>
-  <testcase name="[3] 14.5" classname="VenditaScontataTest" time="0.001"/>
-  <testcase name="[4] 0.0" classname="VenditaScontataTest" time="0.002"/>
-  <testcase name="[5] 100.0" classname="VenditaScontataTest" time="0.001"/>
-  <testcase name="[6] 1.7976931348623157E308" classname="VenditaScontataTest" time="0.001"/>
-  <testcase name="[7] 4.9E-324" classname="VenditaScontataTest" time="0.001"/>
-  <system-out><![CDATA[Errore: sconto negativo.
-Errore: sconto negativo.
-Errore: sconto negativo.
-Errore: sconto negativo.
-]]></system-out>
+  <testcase name="test equals" classname="VenditaScontataTest" time="0.037"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
