@@ -46,6 +46,17 @@ public class VenditaScontata extends Vendita {
 			return false;
 		}
 	}
+
+	public boolean setSconto2(double nuovoSconto) {
+		if(nuovoSconto >= 0 && nuovoSconto <= 100) {
+			sconto = nuovoSconto;
+			return true;
+		}
+		else {
+			System.out.println("Errore: sconto negativo.");
+			return false;
+		}
+	}
 	
 	public String toString() {
 		return ("Componente = " + getNome() + 
