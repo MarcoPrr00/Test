@@ -1,0 +1,172 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > VenditaScontata</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">&lt;empty package name&gt;</a>
+</div>
+
+<h1>Coverage Summary for Class: VenditaScontata (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">VenditaScontata</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    57,1%
+  </span>
+  <span class="absValue">
+    (4/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    71,4%
+  </span>
+  <span class="absValue">
+    (15/21)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/**
+&nbsp; Classe per la vendita di un componente con lo sconto espresso 
+&nbsp; come una percentuale del prezzo, ma senza altri aggiustamenti.
+&nbsp; Il prezzo e lo sconto assumono valori non negativi; 
+&nbsp; il nome ? una stringa non vuota.
+&nbsp;*/
+&nbsp;public class VenditaScontata extends Vendita {
+&nbsp;
+&nbsp;	private double sconto; 	//Una percentuale del prezzo. 
+&nbsp;							//Non pu? essere negativa.
+&nbsp;
+&nbsp;	public VenditaScontata() {
+<b class="fc">&nbsp;		super();</b>
+<b class="fc">&nbsp;		sconto = 0;</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	/**
+&nbsp;	 Precondizione: ilNome ? una stringa non vuota; ilPrezzo ? non negativo;
+&nbsp;	 loSconto ? espresso come una percentuale del prezzo ed ? non negativo.
+&nbsp;	*/
+&nbsp;	public VenditaScontata(String ilNome, double ilPrezzo, double loSconto) {
+<b class="fc">&nbsp;		super(ilNome, ilPrezzo);</b>
+<b class="fc">&nbsp;		setSconto(loSconto);</b>
+&nbsp;	}
+&nbsp;
+&nbsp;
+&nbsp;	public double totale() {
+<b class="nc">&nbsp;		double frazione = sconto / 100;</b>
+<b class="nc">&nbsp;		return (1 - frazione) * getPrezzo();</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	public double getSconto() {
+<b class="nc">&nbsp;		return sconto;</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	/**
+&nbsp;	 Precondizione: nuovoSconto ? non negativo.
+&nbsp;	*/
+&nbsp;	public boolean setSconto(double nuovoSconto) {
+<b class="fc">&nbsp;		if(nuovoSconto &gt;= 0) {</b>
+<b class="fc">&nbsp;			sconto = nuovoSconto;</b>
+<b class="fc">&nbsp;			return true;</b>
+&nbsp;		}
+&nbsp;		else {
+<b class="fc">&nbsp;			System.out.println(&quot;Errore: sconto negativo.&quot;);</b>
+<b class="fc">&nbsp;			return false;</b>
+&nbsp;		}
+&nbsp;	}
+&nbsp;
+&nbsp;
+&nbsp;	
+&nbsp;	public String toString() {
+<b class="nc">&nbsp;		return (&quot;Componente = &quot; + getNome() + </b>
+<b class="nc">&nbsp;				&quot;, Prezzo = E&quot; + getPrezzo() + </b>
+&nbsp;				&quot; Sconto = &quot; + sconto + &quot;%\n&quot; + 
+<b class="nc">&nbsp;				&quot;Costo totale = E&quot; + totale());</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	public boolean equals(Object altroOggetto) {
+<b class="fc">&nbsp;		if (altroOggetto == null)</b>
+<b class="fc">&nbsp;			return false;</b>
+<b class="fc">&nbsp;		else if (!(altroOggetto instanceof VenditaScontata))</b>
+<b class="fc">&nbsp;			return false;</b>
+&nbsp;		else {
+<b class="fc">&nbsp;			VenditaScontata altraVenditaScontata = (VenditaScontata)altroOggetto;</b>
+<b class="fc">&nbsp;			return (super.equals(altraVenditaScontata) &amp;&amp; sconto == altraVenditaScontata.sconto);</b>
+&nbsp;		}
+&nbsp;	}
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-05-05 21:49</div>
+</div>
+</body>
+</html>

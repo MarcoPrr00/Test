@@ -18,25 +18,18 @@ public class VenditaScontataTest {
     }
 
     @Test
-    @DisplayName("metodo che testa i valori non ammissibili di setSconto (-8, null, empty)")
+    @DisplayName("metodo che testa i valori non ammissibili di setSconto (-8, 120, null(?), empty(?))")
     void test2SetSconto() {
         VenditaScontata prodotto = new VenditaScontata();
         /*Double prezzonullo = null;*/
         /*Double prezzovuoto = new Double();*/
-        Assertions.assertAll(() -> assertEquals(false, prodotto.setSconto(-9.5))
+        Assertions.assertAll(() -> assertEquals(false, prodotto.setSconto(-9.5)),
+                             () -> assertEquals(false, prodotto.setSconto(120))
                 /*() -> assertEquals(false, list.get(1).setSconto(prezzonullo))*/
                 /*() -> assertEquals(false, list.get(2).setSconto(prezzovuoto))*/);
 
     }
 
-    @ParameterizedTest
-    @DisplayName("metodo che testa i valori non ammissibili di setSconto con correzzione per valori maggiori di 100")
-    @ValueSource( doubles = { -9.5, 101, Double.MAX_VALUE} )
-    void test3SetSconto(double n) {
-        VenditaScontata prodotto = new VenditaScontata();
-        Assertions.assertEquals(false, prodotto.setSconto2(n));
-
-    }
 
     @Test
     @DisplayName("test equals")

@@ -30,7 +30,6 @@ public class Vendita {
 	 Precondizione: nuovoPrezzo � non negativo.
 	*/
 	public boolean setPrezzo(double nuovoPrezzo) {
-		try {
 			if (nuovoPrezzo >= 0) {
 				prezzo = nuovoPrezzo;
 				return true;
@@ -38,10 +37,6 @@ public class Vendita {
 				System.out.println("Errore: Prezzo negativo.");
 				return false;
 			}
-		}catch (NullPointerException e){
-			System.out.println("Errore: Prezzo negativo.");
-			return false;
-		}
 	}
 	  
 	public String getNome() {

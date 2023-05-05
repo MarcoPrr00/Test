@@ -1,0 +1,211 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Vendita</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">&lt;empty package name&gt;</a>
+</div>
+
+<h1>Coverage Summary for Class: Vendita (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Vendita</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    72,7%
+  </span>
+  <span class="absValue">
+    (8/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    71,2%
+  </span>
+  <span class="absValue">
+    (37/52)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/**
+&nbsp; La classe rappresenta la vendita di un singolo elemento.
+&nbsp; La classe ignora tasse, sconti e qualsiasi altro aggiustamento del prezzo.
+&nbsp; Il prezzo assume valori non negativi; il nome ? una stringa non vuota
+&nbsp;*/
+&nbsp;public class Vendita {
+&nbsp;	private String nome; //Una stringa non vuota
+&nbsp;	private double prezzo; //non negativo
+&nbsp;
+<b class="fc">&nbsp;	public Vendita() {</b>
+<b class="fc">&nbsp;		nome = &quot;Nessu nome&quot;;</b>
+<b class="fc">&nbsp;		prezzo = 0;</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	/**
+&nbsp;	 Precondizione: ilNome ? una stringa non vuota; ilPrezzo ? non negativo.
+&nbsp;	*/
+<b class="fc">&nbsp;	public Vendita(String ilNome, double ilPrezzo) {</b>
+<b class="fc">&nbsp;		setNome(ilNome);</b>
+<b class="fc">&nbsp;		setPrezzo(ilPrezzo);</b>
+&nbsp;	}
+&nbsp;
+&nbsp;
+&nbsp;	 
+&nbsp;	public double getPrezzo() {
+<b class="nc">&nbsp;		return prezzo;</b>
+&nbsp;	}
+&nbsp;	 
+&nbsp;	/**
+&nbsp;	 Precondizione: nuovoPrezzo ? non negativo.
+&nbsp;	*/
+&nbsp;	public boolean setPrezzo(double nuovoPrezzo) {
+<b class="fc">&nbsp;			if (nuovoPrezzo &gt;= 0) {</b>
+<b class="fc">&nbsp;				prezzo = nuovoPrezzo;</b>
+<b class="fc">&nbsp;				return true;</b>
+<b class="fc">&nbsp;			} else {</b>
+<b class="nc">&nbsp;				System.out.println(&quot;Errore: Prezzo negativo.&quot;);</b>
+<b class="fc">&nbsp;				return false;</b>
+<b class="fc">&nbsp;			}</b>
+&nbsp;	}
+<b class="nc">&nbsp;	  </b>
+<b class="nc">&nbsp;	public String getNome() {</b>
+<b class="nc">&nbsp;		return nome;</b>
+&nbsp;	}
+&nbsp;	  
+&nbsp;	/**
+&nbsp;	 Precondizione: nuovoNome ? una stringa non vuota.
+<b class="nc">&nbsp;	*/</b>
+&nbsp;	public boolean setNome(String nuovoNome) {
+<b class="fc">&nbsp;		if(nuovoNome != null &amp;&amp; nuovoNome != &quot;&quot;) {</b>
+<b class="fc">&nbsp;			nome = nuovoNome;</b>
+<b class="fc">&nbsp;			return true;</b>
+&nbsp;		}
+&nbsp;		else {
+<b class="fc">&nbsp;			System.out.println(&quot;Errore: nome errato.&quot;);</b>
+<b class="fc">&nbsp;			return false;</b>
+<b class="fc">&nbsp;		}</b>
+&nbsp;	}
+&nbsp;	
+<b class="fc">&nbsp;	public String toString() {</b>
+<b class="fc">&nbsp;		return (&quot;Componente = &quot; + nome + </b>
+&nbsp;				&quot;, Prezzo e costo totale = E&quot; + prezzo);
+&nbsp;	}
+&nbsp;	  
+&nbsp;	public double totale() {
+<b class="nc">&nbsp;		return prezzo;</b>
+&nbsp;	}
+&nbsp;	
+&nbsp;	/**
+&nbsp;	 Restituisce true se i nomi ed i totali delle vendite sono gli stessi; 
+<b class="fc">&nbsp;	 altrimenti restituisce false.</b>
+&nbsp;	 Il metodo restituisce false anche se altraVendita ? null.
+&nbsp;	*/
+&nbsp;	public boolean uguaglianzaVendite(Vendita altraVendita) {
+<b class="nc">&nbsp;		if(altraVendita == null)</b>
+<b class="nc">&nbsp;			return false;</b>
+&nbsp;		else
+<b class="nc">&nbsp;			return (nome.equals(altraVendita.nome) &amp;&amp;</b>
+<b class="nc">&nbsp;					totale() == altraVendita.totale());</b>
+<b class="fc">&nbsp;	}</b>
+<b class="fc">&nbsp;</b>
+&nbsp;	/**
+<b class="fc">&nbsp;	Restituisce true se il totale dell&#39;oggetto ? minore del totale</b>
+<b class="fc">&nbsp;	dell&#39;oggetto altraVendita; altrimenti restituisce false.</b>
+&nbsp;	*/
+&nbsp;	public boolean minoreDi(Vendita altraVendita) {
+<b class="nc">&nbsp;		if(altraVendita == null) {</b>
+<b class="nc">&nbsp;			System.out.println(&quot;Errore: oggetto Vendita ? null.&quot;);</b>
+<b class="nc">&nbsp;			return false;</b>
+&nbsp;		}
+&nbsp;		//else
+<b class="fc">&nbsp;		return (totale() &lt; altraVendita.totale());</b>
+<b class="fc">&nbsp;	}</b>
+<b class="fc">&nbsp;	 </b>
+&nbsp;	public boolean equals(Object altroOggetto) {
+<b class="fc">&nbsp;		if(altroOggetto == null)</b>
+<b class="fc">&nbsp;			return false;</b>
+<b class="fc">&nbsp;		else if(!(altroOggetto instanceof Vendita)) </b>
+<b class="nc">&nbsp;			return false;</b>
+&nbsp;		else {
+<b class="fc">&nbsp;			Vendita altraVendita = (Vendita)altroOggetto;</b>
+<b class="fc">&nbsp;			return (nome.equals(altraVendita.nome) &amp;&amp; </b>
+<b class="fc">&nbsp;				(prezzo == altraVendita.prezzo));</b>
+<b class="fc">&nbsp;		}</b>
+&nbsp;	}
+<b class="fc">&nbsp;	</b>
+<b class="fc">&nbsp;</b>
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-05-05 21:49</div>
+</div>
+</body>
+</html>
